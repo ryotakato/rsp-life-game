@@ -1,0 +1,294 @@
+[gd_scene load_steps=4 format=3 uid="uid://3r38mg74i068"]
+
+[ext_resource type="Script" path="res://hud.gd" id="1_2pvj6"]
+[ext_resource type="FontFile" uid="uid://whnvr5v7gw4n" path="res://addons/fontawesome/fonts/fa-solid-900.woff2" id="1_at4eh"]
+[ext_resource type="Script" path="res://addons/fontawesome/FontAwesome.gd" id="2_r5mcs"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_2pvj6")
+
+[node name="RunButton" type="Button" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -157.0
+offset_top = -70.0
+offset_right = -7.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+tooltip_text = "Play/Pause"
+theme_override_font_sizes/font_size = 30
+
+[node name="PlayFontAwesome" type="Label" parent="RunButton"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 55.0
+offset_top = 5.0
+offset_right = 93.0
+offset_bottom = 56.0
+auto_translate = false
+localize_numeral_system = false
+theme_override_fonts/font = ExtResource("1_at4eh")
+theme_override_font_sizes/font_size = 50
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_r5mcs")
+icon_size = 50
+icon_name = "play"
+
+[node name="PauseFontAwesome" type="Label" parent="RunButton"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 55.0
+offset_top = 5.0
+offset_right = 93.0
+offset_bottom = 56.0
+auto_translate = false
+localize_numeral_system = false
+theme_override_fonts/font = ExtResource("1_at4eh")
+theme_override_font_sizes/font_size = 50
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_r5mcs")
+icon_size = 50
+icon_name = "pause"
+
+[node name="ResetButton" type="Button" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -70.0
+offset_right = -170.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+tooltip_text = "Reset"
+theme_override_font_sizes/font_size = 30
+
+[node name="ResetFontAwesome" type="Label" parent="ResetButton"]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 5.0
+offset_right = 93.0
+offset_bottom = 56.0
+auto_translate = false
+localize_numeral_system = false
+theme_override_fonts/font = ExtResource("1_at4eh")
+theme_override_font_sizes/font_size = 50
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_r5mcs")
+icon_size = 50
+icon_name = "rotate-right"
+
+[node name="ConfigButton" type="Button" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -60.0
+offset_top = 10.0
+offset_right = -15.0
+offset_bottom = 55.0
+grow_horizontal = 0
+tooltip_text = "Config"
+
+[node name="ConfigFontAwesome" type="Label" parent="ConfigButton"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 46.0
+offset_bottom = 45.0
+auto_translate = false
+localize_numeral_system = false
+theme_override_fonts/font = ExtResource("1_at4eh")
+theme_override_font_sizes/font_size = 40
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_r5mcs")
+icon_size = 40
+icon_name = "gear"
+
+[node name="HpLabelCheckBox" type="CheckBox" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -70.0
+offset_top = -110.0
+offset_right = -20.0
+offset_bottom = -79.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "HP"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -70.0
+offset_right = 918.0
+offset_bottom = -10.0
+grow_vertical = 0
+
+[node name="RockMarginContainer" type="MarginContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_constants/margin_right = 30
+
+[node name="RockColorRect" type="ColorRect" parent="HBoxContainer/RockMarginContainer"]
+custom_minimum_size = Vector2(210, 0)
+layout_mode = 2
+color = Color(0.282353, 0.282353, 0.282353, 1)
+
+[node name="RockFontAwesome" type="Label" parent="HBoxContainer/RockMarginContainer/RockColorRect"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 11.0
+offset_top = 5.0
+offset_right = 55.0
+offset_bottom = 56.0
+auto_translate = false
+localize_numeral_system = false
+theme_override_colors/font_color = Color(1, 0.713726, 0.756863, 1)
+theme_override_fonts/font = ExtResource("1_at4eh")
+theme_override_font_sizes/font_size = 50
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_r5mcs")
+icon_size = 50
+icon_name = "hand-back-fist"
+
+[node name="RockCountLabel" type="Label" parent="HBoxContainer/RockMarginContainer/RockColorRect"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -156.0
+offset_top = -34.5
+offset_bottom = 34.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+text = "0"
+horizontal_alignment = 1
+
+[node name="ScissorsMarginContainer" type="MarginContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_constants/margin_right = 30
+
+[node name="ScissorsColorRect" type="ColorRect" parent="HBoxContainer/ScissorsMarginContainer"]
+custom_minimum_size = Vector2(210, 0)
+layout_mode = 2
+color = Color(0.282353, 0.282353, 0.282353, 1)
+
+[node name="ScissorsFontAwesome" type="Label" parent="HBoxContainer/ScissorsMarginContainer/ScissorsColorRect"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 60.0
+offset_top = 3.0
+offset_right = 110.0
+offset_bottom = 54.0
+rotation = 1.48734
+auto_translate = false
+localize_numeral_system = false
+theme_override_colors/font_color = Color(0.529412, 0.807843, 0.980392, 1)
+theme_override_fonts/font = ExtResource("1_at4eh")
+theme_override_font_sizes/font_size = 50
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_r5mcs")
+icon_size = 50
+icon_name = "hand-scissors"
+
+[node name="ScissorsCountLabel" type="Label" parent="HBoxContainer/ScissorsMarginContainer/ScissorsColorRect"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -156.0
+offset_top = -34.5
+offset_bottom = 34.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+text = "0"
+horizontal_alignment = 1
+
+[node name="PaperMarginContainer" type="MarginContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_constants/margin_right = 30
+
+[node name="PaperColorRect" type="ColorRect" parent="HBoxContainer/PaperMarginContainer"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+color = Color(0.282353, 0.282353, 0.282353, 1)
+
+[node name="PaperFontAwesome" type="Label" parent="HBoxContainer/PaperMarginContainer/PaperColorRect"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 11.0
+offset_top = 5.0
+offset_right = 61.0
+offset_bottom = 56.0
+auto_translate = false
+localize_numeral_system = false
+theme_override_colors/font_color = Color(1, 1, 0.878431, 1)
+theme_override_fonts/font = ExtResource("1_at4eh")
+theme_override_font_sizes/font_size = 50
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_r5mcs")
+icon_size = 50
+icon_name = "hand"
+
+[node name="PaperCountLabel" type="Label" parent="HBoxContainer/PaperMarginContainer/PaperColorRect"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -156.0
+offset_top = -34.5
+offset_bottom = 34.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+text = "0"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="RunButton" to="." method="_on_run_button_pressed"]
+[connection signal="pressed" from="ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="ConfigButton" to="." method="_on_config_button_pressed"]
+[connection signal="toggled" from="HpLabelCheckBox" to="." method="_on_hp_label_check_box_toggled"]

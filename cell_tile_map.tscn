@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://cy8cb26bn767e"]
+
+[ext_resource type="Texture2D" uid="uid://7aebat827doa" path="res://art/hex_rotate.png" id="1_lpo37"]
+[ext_resource type="Script" path="res://cell_tile_map.gd" id="2_v3ftl"]
+[ext_resource type="PackedScene" uid="uid://bdm3m6y0d1hxj" path="res://hp_label.tscn" id="3_x8k3f"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1jcmh"]
+texture = ExtResource("1_lpo37")
+texture_region_size = Vector2i(48, 48)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_i5ecl"]
+tile_shape = 3
+tile_size = Vector2i(42, 48)
+sources/0 = SubResource("TileSetAtlasSource_1jcmh")
+
+[node name="CellTileMap" type="TileMap"]
+tile_set = SubResource("TileSet_i5ecl")
+format = 2
+layer_0/name = "rock"
+layer_0/modulate = Color(1, 0.713726, 0.756863, 1)
+layer_1/name = "scissors"
+layer_1/modulate = Color(0.529412, 0.807843, 0.980392, 1)
+layer_1/tile_data = PackedInt32Array()
+layer_2/name = "paper"
+layer_2/modulate = Color(1, 1, 0.878431, 1)
+layer_2/tile_data = PackedInt32Array()
+layer_3/name = "none"
+layer_3/modulate = Color(0.827451, 0.827451, 0.827451, 1)
+layer_3/tile_data = PackedInt32Array()
+script = ExtResource("2_v3ftl")
+hp_label_scene = ExtResource("3_x8k3f")
+
+[node name="HpLabelLayer" type="CanvasLayer" parent="."]
+visible = false

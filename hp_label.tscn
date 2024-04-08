@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bdm3m6y0d1hxj"]
+
+[node name="HpLabel" type="Label"]
+offset_right = 30.0
+offset_bottom = 30.0
+theme_override_colors/font_color = Color(0.533333, 0.533333, 0.533333, 1)
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://rp63g843v3xn"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_fb57x"]
+[ext_resource type="PackedScene" uid="uid://cy8cb26bn767e" path="res://cell_tile_map.tscn" id="2_a40ry"]
+[ext_resource type="PackedScene" uid="uid://3r38mg74i068" path="res://hud.tscn" id="3_v60tt"]
+[ext_resource type="PackedScene" uid="uid://ca3byqpwidt7m" path="res://config_display.tscn" id="4_kq37l"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_fb57x")
+
+[node name="GenerationTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+offset = Vector2(10, 5)
+scale = Vector2(0.95, 0.9)
+transform = Transform2D(0.95, 0, 0, 0.9, 10, 5)
+
+[node name="CellTileMap" parent="CanvasLayer" instance=ExtResource("2_a40ry")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.870588, 0.870588, 0.870588, 1)
+
+[node name="HUD" parent="." instance=ExtResource("3_v60tt")]
+follow_viewport_enabled = true
+
+[node name="ConfigDisplay" parent="." instance=ExtResource("4_kq37l")]
+visible = false
+follow_viewport_enabled = true
+
+[connection signal="timeout" from="GenerationTimer" to="." method="_on_generation_timer_timeout"]

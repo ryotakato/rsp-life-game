@@ -1,0 +1,933 @@
+[gd_scene load_steps=4 format=3 uid="uid://ca3byqpwidt7m"]
+
+[ext_resource type="FontFile" uid="uid://whnvr5v7gw4n" path="res://addons/fontawesome/fonts/fa-solid-900.woff2" id="1_dgiqp"]
+[ext_resource type="Script" path="res://config_display.gd" id="1_lpn2l"]
+[ext_resource type="Script" path="res://addons/fontawesome/FontAwesome.gd" id="2_mntpg"]
+
+[node name="ConfigDisplay" type="CanvasLayer"]
+script = ExtResource("1_lpn2l")
+
+[node name="BackGround" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ConfigLabel" type="Label" parent="BackGround"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 4.0
+offset_right = 121.0
+offset_bottom = 53.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "Config"
+
+[node name="ConfigCautionLabel" type="Label" parent="BackGround"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 25.0
+offset_right = 174.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "* value is changed since next play (= after reset button was pressed )"
+
+[node name="CloseButton" type="Button" parent="BackGround"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -60.0
+offset_top = 10.0
+offset_right = -15.0
+offset_bottom = 55.0
+grow_horizontal = 0
+tooltip_text = "Close"
+
+[node name="CloseFontAwesome" type="Label" parent="BackGround/CloseButton"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 46.0
+offset_bottom = 45.0
+auto_translate = false
+localize_numeral_system = false
+theme_override_fonts/font = ExtResource("1_dgiqp")
+theme_override_font_sizes/font_size = 40
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_mntpg")
+icon_size = 40
+icon_name = "xmark"
+
+[node name="PanelContainer" type="PanelContainer" parent="BackGround"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="BackGround/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BackGround/PanelContainer/MarginContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="GridContainer2" type="GridContainer" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer2"]
+layout_mode = 2
+
+[node name="GenerationColorRect" type="ColorRect" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+color = Color(0.282353, 0.282353, 0.282353, 1)
+
+[node name="GenerationNameLabel" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer2/VBoxContainer/GenerationColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "Generation"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="GridContainer" type="GridContainer" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer2/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 19
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="GenerationConfigSpeedTitle" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer2/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Speed
+"
+
+[node name="GenerationConfigSpeedReset" type="Button" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer2/VBoxContainer/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+tooltip_text = "Reset"
+
+[node name="ResetFontAwesome" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer2/VBoxContainer/MarginContainer/GridContainer/GenerationConfigSpeedReset"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 26.0
+offset_bottom = 25.0
+auto_translate = false
+localize_numeral_system = false
+theme_override_fonts/font = ExtResource("1_dgiqp")
+theme_override_font_sizes/font_size = 15
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_mntpg")
+icon_size = 15
+icon_name = "rotate-left"
+
+[node name="GenerationConfigSpeedEdit" type="SpinBox" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer2/VBoxContainer/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 0.1
+max_value = 5.0
+step = 0.1
+value = 0.1
+alignment = 2
+
+[node name="GridContainer" type="GridContainer" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="VBoxContainerRock" type="VBoxContainer" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RockColorRect" type="ColorRect" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerRock"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+color = Color(0.282353, 0.282353, 0.282353, 1)
+
+[node name="RockFontAwesome" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerRock/RockColorRect"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 11.0
+offset_right = 55.0
+offset_bottom = 51.0
+auto_translate = false
+localize_numeral_system = false
+theme_override_colors/font_color = Color(1, 0.713726, 0.756863, 1)
+theme_override_fonts/font = ExtResource("1_dgiqp")
+theme_override_font_sizes/font_size = 37
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_mntpg")
+icon_size = 37
+icon_name = "hand-back-fist"
+
+[node name="RockNameLabel" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerRock/RockColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "Rock"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerRock"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="GridContainer" type="GridContainer" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerRock/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 19
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="RockConfigColorTitle" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerRock/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Color"
+
+[node name="RockConfigColorReset" type="Button" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerRock/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+tooltip_text = "Reset"
+
+[node name="ResetFontAwesome" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerRock/MarginContainer/GridContainer/RockConfigColorReset"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 26.0
+offset_bottom = 25.0
+auto_translate = false
+localize_numeral_system = false
+theme_override_fonts/font = ExtResource("1_dgiqp")
+theme_override_font_sizes/font_size = 15
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_mntpg")
+icon_size = 15
+icon_name = "rotate-left"
+
+[node name="RockConfigColorPickerButton" type="ColorPickerButton" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerRock/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Color"
+
+[node name="RockConfigHPTitle" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerRock/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "HP
+"
+
+[node name="RockConfigHPReset" type="Button" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerRock/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+tooltip_text = "Reset"
+
+[node name="ResetFontAwesome" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerRock/MarginContainer/GridContainer/RockConfigHPReset"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 26.0
+offset_bottom = 25.0
+auto_translate = false
+localize_numeral_system = false
+theme_override_fonts/font = ExtResource("1_dgiqp")
+theme_override_font_sizes/font_size = 15
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_mntpg")
+icon_size = 15
+icon_name = "rotate-left"
+
+[node name="RockConfigHPEdit" type="SpinBox" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerRock/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 10000.0
+alignment = 2
+
+[node name="RockConfigDamageTitle" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerRock/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Damage"
+
+[node name="RockConfigDamageReset" type="Button" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerRock/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+tooltip_text = "Reset"
+
+[node name="ResetFontAwesome" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerRock/MarginContainer/GridContainer/RockConfigDamageReset"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 26.0
+offset_bottom = 25.0
+auto_translate = false
+localize_numeral_system = false
+theme_override_fonts/font = ExtResource("1_dgiqp")
+theme_override_font_sizes/font_size = 15
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_mntpg")
+icon_size = 15
+icon_name = "rotate-left"
+
+[node name="RockConfigDamageEdit" type="SpinBox" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerRock/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 10000.0
+alignment = 2
+
+[node name="RockConfigHealTitle" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerRock/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Heal"
+
+[node name="RockConfigHealReset" type="Button" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerRock/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+tooltip_text = "Reset"
+
+[node name="ResetFontAwesome" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerRock/MarginContainer/GridContainer/RockConfigHealReset"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 26.0
+offset_bottom = 25.0
+auto_translate = false
+localize_numeral_system = false
+theme_override_fonts/font = ExtResource("1_dgiqp")
+theme_override_font_sizes/font_size = 15
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_mntpg")
+icon_size = 15
+icon_name = "rotate-left"
+
+[node name="RockConfigHealEdit" type="SpinBox" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerRock/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 10000.0
+alignment = 2
+
+[node name="VBoxContainerScissors" type="VBoxContainer" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScissorsColorRect" type="ColorRect" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerScissors"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+color = Color(0.282353, 0.282353, 0.282353, 1)
+
+[node name="ScissorsFontAwesome" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerScissors/ScissorsColorRect"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 60.0
+offset_right = 110.0
+offset_bottom = 51.0
+rotation = 1.48702
+auto_translate = false
+localize_numeral_system = false
+theme_override_colors/font_color = Color(0.529412, 0.807843, 0.980392, 1)
+theme_override_fonts/font = ExtResource("1_dgiqp")
+theme_override_font_sizes/font_size = 37
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_mntpg")
+icon_size = 37
+icon_name = "hand-scissors"
+
+[node name="ScissorsNameLabel" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerScissors/ScissorsColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -2.5
+offset_right = 20.0
+offset_bottom = 2.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "Scissors"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerScissors"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="GridContainer" type="GridContainer" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerScissors/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 19
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="ScissorsConfigColorTitle" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerScissors/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Color"
+
+[node name="ScissorsConfigColorReset" type="Button" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerScissors/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+tooltip_text = "Reset"
+
+[node name="ResetFontAwesome" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerScissors/MarginContainer/GridContainer/ScissorsConfigColorReset"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 26.0
+offset_bottom = 25.0
+auto_translate = false
+localize_numeral_system = false
+theme_override_fonts/font = ExtResource("1_dgiqp")
+theme_override_font_sizes/font_size = 15
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_mntpg")
+icon_size = 15
+icon_name = "rotate-left"
+
+[node name="ScissorsConfigColorPickerButton" type="ColorPickerButton" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerScissors/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Color"
+
+[node name="ScissorsConfigHPTitle" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerScissors/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "HP
+"
+
+[node name="ScissorsConfigHPReset" type="Button" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerScissors/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+tooltip_text = "Reset"
+
+[node name="ResetFontAwesome" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerScissors/MarginContainer/GridContainer/ScissorsConfigHPReset"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 26.0
+offset_bottom = 25.0
+auto_translate = false
+localize_numeral_system = false
+theme_override_fonts/font = ExtResource("1_dgiqp")
+theme_override_font_sizes/font_size = 15
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_mntpg")
+icon_size = 15
+icon_name = "rotate-left"
+
+[node name="ScissorsConfigHPEdit" type="SpinBox" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerScissors/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 10000.0
+alignment = 2
+
+[node name="ScissorsConfigDamageTitle" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerScissors/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Damage"
+
+[node name="ScissorsConfigDamageReset" type="Button" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerScissors/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+tooltip_text = "Reset"
+
+[node name="ResetFontAwesome" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerScissors/MarginContainer/GridContainer/ScissorsConfigDamageReset"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 26.0
+offset_bottom = 25.0
+auto_translate = false
+localize_numeral_system = false
+theme_override_fonts/font = ExtResource("1_dgiqp")
+theme_override_font_sizes/font_size = 15
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_mntpg")
+icon_size = 15
+icon_name = "rotate-left"
+
+[node name="ScissorsConfigDamageEdit" type="SpinBox" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerScissors/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 10000.0
+alignment = 2
+
+[node name="ScissorsConfigHealTitle" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerScissors/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Heal"
+
+[node name="ScissorsConfigHealReset" type="Button" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerScissors/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+tooltip_text = "Reset"
+
+[node name="ResetFontAwesome" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerScissors/MarginContainer/GridContainer/ScissorsConfigHealReset"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 26.0
+offset_bottom = 25.0
+auto_translate = false
+localize_numeral_system = false
+theme_override_fonts/font = ExtResource("1_dgiqp")
+theme_override_font_sizes/font_size = 15
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_mntpg")
+icon_size = 15
+icon_name = "rotate-left"
+
+[node name="ScissorsConfigHealEdit" type="SpinBox" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerScissors/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 10000.0
+alignment = 2
+
+[node name="VBoxContainerPaper" type="VBoxContainer" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PaperColorRect" type="ColorRect" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerPaper"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+color = Color(0.282353, 0.282353, 0.282353, 1)
+
+[node name="PaperFontAwesome" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerPaper/PaperColorRect"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 11.0
+offset_right = 55.0
+offset_bottom = 51.0
+auto_translate = false
+localize_numeral_system = false
+theme_override_colors/font_color = Color(1, 1, 0.878431, 1)
+theme_override_fonts/font = ExtResource("1_dgiqp")
+theme_override_font_sizes/font_size = 37
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_mntpg")
+icon_size = 37
+icon_name = "hand"
+
+[node name="PaperNameLabel" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerPaper/PaperColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "Paper"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerPaper"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="GridContainer" type="GridContainer" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerPaper/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 19
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="PaperConfigColorTitle" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerPaper/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Color"
+
+[node name="PaperConfigColorReset" type="Button" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerPaper/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+tooltip_text = "Reset"
+
+[node name="ResetFontAwesome" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerPaper/MarginContainer/GridContainer/PaperConfigColorReset"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 26.0
+offset_bottom = 25.0
+auto_translate = false
+localize_numeral_system = false
+theme_override_fonts/font = ExtResource("1_dgiqp")
+theme_override_font_sizes/font_size = 15
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_mntpg")
+icon_size = 15
+icon_name = "rotate-left"
+
+[node name="PaperConfigColorPickerButton" type="ColorPickerButton" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerPaper/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Color"
+
+[node name="PaperConfigHPTitle" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerPaper/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "HP
+"
+
+[node name="PaperConfigHPReset" type="Button" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerPaper/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+tooltip_text = "Reset"
+
+[node name="ResetFontAwesome" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerPaper/MarginContainer/GridContainer/PaperConfigHPReset"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 26.0
+offset_bottom = 25.0
+auto_translate = false
+localize_numeral_system = false
+theme_override_fonts/font = ExtResource("1_dgiqp")
+theme_override_font_sizes/font_size = 15
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_mntpg")
+icon_size = 15
+icon_name = "rotate-left"
+
+[node name="PaperConfigHPEdit" type="SpinBox" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerPaper/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 10000.0
+alignment = 2
+
+[node name="PaperConfigDamageTitle" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerPaper/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Damage"
+
+[node name="PaperConfigDamageReset" type="Button" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerPaper/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+tooltip_text = "Reset"
+
+[node name="ResetFontAwesome" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerPaper/MarginContainer/GridContainer/PaperConfigDamageReset"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 26.0
+offset_bottom = 25.0
+auto_translate = false
+localize_numeral_system = false
+theme_override_fonts/font = ExtResource("1_dgiqp")
+theme_override_font_sizes/font_size = 15
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_mntpg")
+icon_size = 15
+icon_name = "rotate-left"
+
+[node name="PaperConfigDamageEdit" type="SpinBox" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerPaper/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 10000.0
+alignment = 2
+
+[node name="PaperonfigHealTitle" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerPaper/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Heal"
+
+[node name="PaperConfigHealReset" type="Button" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerPaper/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+tooltip_text = "Reset"
+
+[node name="ResetFontAwesome" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerPaper/MarginContainer/GridContainer/PaperConfigHealReset"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 26.0
+offset_bottom = 25.0
+auto_translate = false
+localize_numeral_system = false
+theme_override_fonts/font = ExtResource("1_dgiqp")
+theme_override_font_sizes/font_size = 15
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_mntpg")
+icon_size = 15
+icon_name = "rotate-left"
+
+[node name="PaperConfigHealEdit" type="SpinBox" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerPaper/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 10000.0
+alignment = 2
+
+[node name="VBoxContainerNone" type="VBoxContainer" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NoneColorRect" type="ColorRect" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerNone"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+color = Color(0.282353, 0.282353, 0.282353, 1)
+
+[node name="NoneFontAwesome" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerNone/NoneColorRect"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+offset_left = 11.0
+offset_top = 5.0
+offset_right = 55.0
+offset_bottom = 56.0
+auto_translate = false
+localize_numeral_system = false
+theme_override_colors/font_color = Color(0.827451, 0.827451, 0.827451, 1)
+theme_override_fonts/font = ExtResource("1_dgiqp")
+theme_override_font_sizes/font_size = 37
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_mntpg")
+icon_size = 37
+icon_name = ""
+
+[node name="NoneNameLabel" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerNone/NoneColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "None"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerNone"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="GridContainer" type="GridContainer" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerNone/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 19
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="NoneConfigColorTitle" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerNone/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Color"
+
+[node name="NoneConfigColorReset" type="Button" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerNone/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+tooltip_text = "Reset"
+
+[node name="ResetFontAwesome" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerNone/MarginContainer/GridContainer/NoneConfigColorReset"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 26.0
+offset_bottom = 25.0
+auto_translate = false
+localize_numeral_system = false
+theme_override_fonts/font = ExtResource("1_dgiqp")
+theme_override_font_sizes/font_size = 15
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_mntpg")
+icon_size = 15
+icon_name = "rotate-left"
+
+[node name="NoneConfigColorPickerButton" type="ColorPickerButton" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerNone/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Color"
+
+[node name="NoneConfigHPTitle" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerNone/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "HP
+"
+
+[node name="NoneConfigHPReset" type="Button" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerNone/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+tooltip_text = "Reset"
+
+[node name="ResetFontAwesome" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerNone/MarginContainer/GridContainer/NoneConfigHPReset"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 26.0
+offset_bottom = 25.0
+auto_translate = false
+localize_numeral_system = false
+theme_override_fonts/font = ExtResource("1_dgiqp")
+theme_override_font_sizes/font_size = 15
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_mntpg")
+icon_size = 15
+icon_name = "rotate-left"
+
+[node name="NoneConfigHPEdit" type="SpinBox" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerNone/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 10000.0
+alignment = 2
+
+[node name="NoneConfigDamageTitle" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerNone/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Damage"
+
+[node name="NoneConfigDamageReset" type="Button" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerNone/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+tooltip_text = "Reset"
+
+[node name="ResetFontAwesome" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerNone/MarginContainer/GridContainer/NoneConfigDamageReset"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 26.0
+offset_bottom = 25.0
+auto_translate = false
+localize_numeral_system = false
+theme_override_fonts/font = ExtResource("1_dgiqp")
+theme_override_font_sizes/font_size = 15
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_mntpg")
+icon_size = 15
+icon_name = "rotate-left"
+
+[node name="NoneConfigDamageEdit" type="SpinBox" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerNone/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 10000.0
+alignment = 2
+
+[node name="NoneConfigHealTitle" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerNone/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Heal"
+
+[node name="NoneConfigHealReset" type="Button" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerNone/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+tooltip_text = "Reset"
+
+[node name="ResetFontAwesome" type="Label" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerNone/MarginContainer/GridContainer/NoneConfigHealReset"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 26.0
+offset_bottom = 25.0
+auto_translate = false
+localize_numeral_system = false
+theme_override_fonts/font = ExtResource("1_dgiqp")
+theme_override_font_sizes/font_size = 15
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_mntpg")
+icon_size = 15
+icon_name = "rotate-left"
+
+[node name="NoneConfigHealEdit" type="SpinBox" parent="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/VBoxContainerNone/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 10000.0
+alignment = 2
+
+[connection signal="pressed" from="BackGround/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer2/VBoxContainer/MarginContainer/GridContainer/GenerationConfigSpeedReset" to="." method="_on_generation_config_speed_reset_pressed"]
+[connection signal="value_changed" from="BackGround/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer2/VBoxContainer/MarginContainer/GridContainer/GenerationConfigSpeedEdit" to="." method="_on_generation_config_speed_edit_value_changed"]

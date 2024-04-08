@@ -1,0 +1,58 @@
+{
+	"categories": [
+		{
+			"uuid": "7384b1e3-2a6a-4441-87af-f9892de5bc75",
+			"title": "Task",
+			"color": "70bafa"
+		}
+	],
+	"stages": [
+		{
+			"uuid": "952a56cc-8955-4aeb-b1db-a2ac73847a22",
+			"title": "Todo",
+			"tasks": [
+				"c61925e6-c71b-44de-9853-54d3b0bfcc35",
+				"7941de28-50f1-4cc7-9840-f68409dde276"
+			]
+		},
+		{
+			"uuid": "d81cc1f8-539e-4404-a66c-5fcd80b49d65",
+			"title": "Doing",
+			"tasks": []
+		},
+		{
+			"uuid": "b885c51c-1648-4d26-bbb8-cc7161aa6baf",
+			"title": "Done",
+			"tasks": []
+		}
+	],
+	"tasks": [
+		{
+			"uuid": "c61925e6-c71b-44de-9853-54d3b0bfcc35",
+			"title": "RSP Circle basic feature (damage, health and so on)",
+			"description": "",
+			"category": "7384b1e3-2a6a-4441-87af-f9892de5bc75",
+			"steps": []
+		},
+		{
+			"uuid": "7941de28-50f1-4cc7-9840-f68409dde276",
+			"title": "Main Map",
+			"description": "",
+			"category": "7384b1e3-2a6a-4441-87af-f9892de5bc75",
+			"steps": []
+		}
+	],
+	"layout": {
+		"columns": [
+			[
+				"952a56cc-8955-4aeb-b1db-a2ac73847a22"
+			],
+			[
+				"d81cc1f8-539e-4404-a66c-5fcd80b49d65"
+			],
+			[
+				"b885c51c-1648-4d26-bbb8-cc7161aa6baf"
+			]
+		]
+	}
+}
